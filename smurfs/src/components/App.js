@@ -4,7 +4,12 @@ import { v4 as uuid } from "uuid";
 
 import Header from "./Header";
 import Cards from "./Cards";
-import { SmurfContext, FormContext } from "../contexts";
+import {
+  SmurfContext,
+  FormContext,
+  InputContext,
+  SubmitContext,
+} from "../contexts";
 
 export default function App() {
   const [smurfs, setSmurfs] = useState([]);
@@ -30,31 +35,32 @@ export default function App() {
 
   const onInputChange = (event) => {
     event.preventDefault();
-    console.log("hi");
-    const inputThatChanged = event.target.name;
-    const newValueForInput = event.target.value;
     setFormValues({
       ...formValues,
-      [inputThatChanged]: newValueForInput,
+      [event.target.name]: event.target.value,
     });
   };
 
-  // const onFormSubmit = (event) => {
-  //   event.preventDefault();
-  //   const newSmurf = {
-  //     age: formValues.age,
-  //     height: formValues.height,
-  //     id: uuid(),
-  //     name: formValues.name,
-  //   };
-  //   setSmurfs(...smurfs, newSmurf);
-  // };
+  const onFormSubmit = (event) => {
+    event.preventDefault();
+    const newSmurf = {
+      age: formValues.age,
+      height: formValues.height,
+      id: uuid(),
+      name: formValues.name,
+    };
+    setSmurfs([...smurfs, newSmurf]);
+  };
 
   return (
     <SmurfContext.Provider value={smurfs}>
       <Header />
-      <FormContext.Provider value={(formValues, onInputChange)}>
-        <Cards />
+      <FormContext.Provider value={formValues}>
+        <InputContext.Provider value={onInputChange}>
+          <SubmitContext.Provider value={onFormSubmit}>
+            <Cards />
+          </SubmitContext.Provider>
+        </InputContext.Provider>
       </FormContext.Provider>
     </SmurfContext.Provider>
   );

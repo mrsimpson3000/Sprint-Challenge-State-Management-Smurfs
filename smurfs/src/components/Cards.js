@@ -1,16 +1,19 @@
 import React, { useContext } from "react";
 import { Row, Form, FormGroup, Label, Input, Col, Button } from "reactstrap";
 
-import { SmurfContext, FormContext } from "../contexts";
+import {
+  SmurfContext,
+  FormContext,
+  InputContext,
+  SubmitContext,
+} from "../contexts";
 import SingleCard from "./SingleCard";
 
 export default function Cards() {
   const smurfs = useContext(SmurfContext);
   const formValues = useContext(FormContext);
-  const onInputChange = useContext(FormContext);
-  const onFormSubmit = useContext(FormContext);
-
-  // console.log({ formValues });
+  const onInputChange = useContext(InputContext);
+  const onFormSubmit = useContext(SubmitContext);
 
   return (
     <>
@@ -22,7 +25,7 @@ export default function Cards() {
       </Row>
       <Row className='pt-5 pb-5'>
         <Col sm={12} md={{ size: 6, offset: 3 }}>
-          <Form onSubmit={onFormSubmit} className='bg-smurf p-4'>
+          <Form className='bg-smurf p-4'>
             <FormGroup>
               <Label for='name'>Smurf Name</Label>
               <Input
@@ -56,7 +59,9 @@ export default function Cards() {
                 required
               />
             </FormGroup>
-            <Button color='primary'>Add Smurf</Button>
+            <Button onClick={onFormSubmit} color='primary'>
+              Add Smurf
+            </Button>
           </Form>
         </Col>
       </Row>
