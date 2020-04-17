@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Body() {
+export default function Cards() {
   return (
     <div className='background'>
       <h1>Hi from Smurf Village</h1>
