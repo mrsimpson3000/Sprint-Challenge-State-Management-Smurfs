@@ -1,6 +1,6 @@
 1. What problem does the context API help solve?
 
-It's intent is to solve the problem created by prop drilling. What's prop drilling you might say? Ask the google if you don't know.
+It's intent is to solve the problem created by prop drilling. What's prop drilling you might say? Ask the google if you don't know. I only have to tell you what problem it tries to solve.
 
 1. In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
 
