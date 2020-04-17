@@ -50,6 +50,11 @@ export default function App() {
       name: formValues.name,
     };
     setSmurfs([...smurfs, newSmurf]);
+    setFormValues({
+      name: "",
+      age: "",
+      height: "",
+    });
   };
 
   return (
