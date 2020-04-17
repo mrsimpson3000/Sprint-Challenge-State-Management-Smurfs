@@ -3,6 +3,7 @@ import axios from "axios";
 
 import Header from "./Header";
 import Cards from "./Cards";
+import { SmurfContext } from "../contexts";
 
 export default function App() {
   const [smurfs, setSmurfs] = useState([]);
@@ -11,7 +12,7 @@ export default function App() {
     axios
       .get("http://localhost:3333/smurfs")
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         setSmurfs(response.data);
       })
       .catch((error) => {
@@ -20,9 +21,11 @@ export default function App() {
   }, []);
 
   return (
-    <div>
-      <Header />
-      <Cards />
-    </div>
+    <SmurfContext.Provider value={smurfs}>
+      <div className='background'>
+        <Header />
+        <Cards />
+      </div>
+    </SmurfContext.Provider>
   );
 }
