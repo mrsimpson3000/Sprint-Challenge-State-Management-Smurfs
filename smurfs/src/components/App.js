@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import Header from "./Header";
+import Body from "./Body";
 
 export default function App() {
   const [smurfs, setSmurfs] = useState([]);
@@ -21,6 +22,7 @@ export default function App() {
   return (
     <div>
       <Header />
+      <Body />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import React from "react";
 
-import logo from "../images/rsz_smurf_png5.png";
+import logo from "../images/rsz_1smurf_png5.png";
 
 export default function Header() {
   return (

@@ -4,9 +4,17 @@ body {
   font-family: sans-serif;
 }
 
+html {
+  background: url(./images/SmurfsCot4A.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 .logo {
   box-sizing: border-box;
-  max-width: 600px;
+  max-width: 300px;
   width: 100%;
   background-color: lightblue;
   padding: 10px;
